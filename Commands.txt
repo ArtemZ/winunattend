@@ -1,10 +1,22 @@
-1. Make a disk image:
+- Make a disk image:
 imagex /compress maximum /check /flags "ServerStandard" /scroll /capture F: C:\winpe_amd64\ISO\sources\install.wim "Windows Server 2008 R2 Standard (Full Installation)" "This option installs the complete installation of Windows Server. This installation includes the entire user interface, and it supports all of the server roles."
-2. Mount winpe image:
+
+- Mount winpe image:
 C:\winpe_amd64>dism /Mount-Wim /WimFile:C:\winpe_amd64\winpe.wim /index:1 /Mount
 Dir:C:\winpe_amd64\mount
 
 
-3. Make an ISO
+- Make an ISO
+C:\winpe_amd64>oscdimg -n -bc:\winpe_amd64\etfsboot.com c:\winpe_amd64\ISO winpe_amd64.iso -o -mwinpe
 
-C:\winpe_amd64>oscdimg -n -bc:\winpe_amd64\etfsboot.com c:\winpe_amd64\ISO winpe_amd64.iso -o -m
+- Apply winpe image to F: disk
+imagex /apply boot.wim 1 F:
+
+- Copy sources to F:
+xcopy sources /e /f f:\sources
+
+- Remove boot.wim from f:\sources
+
+- Copy boot and bootmgr to f:
+
+- Run bcdboot.bat to update bcd
