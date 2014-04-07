@@ -3,6 +3,11 @@
 2. Mount winpe image:
 C:\winpe_amd64>dism /Mount-Wim /WimFile:C:\winpe_amd64\winpe.wim /index:1 /MountDir:C:\winpe_amd64\mount
 
+3. Copy sources from cd with windows to C:\winpe_amd64\mount
+
+4. Remove boot.wim from sources
+
+
 - Make a disk image:
 imagex /compress maximum /check /flags "ServerStandard" /scroll /capture F: C:\winpe_amd64\ISO\sources\install.wim "Windows Server 2008 R2 Standard (Full Installation)" "This option installs the complete installation of Windows Server. This installation includes the entire user interface, and it supports all of the server roles."
 
