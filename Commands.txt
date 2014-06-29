@@ -11,6 +11,8 @@ C:\winpe_amd64>dism /Mount-Wim /WimFile:C:\winpe_amd64\winpe.wim /index:1 /Mount
 - Make a disk image:
 imagex /compress maximum /check /flags "ServerStandard" /scroll /capture F: C:\winpe_amd64\ISO\sources\install.wim "Windows Server 2008 R2 Standard (Full Installation)" "This option installs the complete installation of Windows Server. This installation includes the entire user interface, and it supports all of the server roles."
 
+- Fix drivers if dismm doesnt accept them
+expand *.* c:\target -- this will expand the all the files to the Directory c:\target
 
 - Make an ISO
 C:\winpe_amd64>oscdimg -n -bc:\winpe_amd64\etfsboot.com c:\winpe_amd64\ISO winpe_amd64.iso -o -mwinpe
